@@ -17,7 +17,13 @@ from datetime import timedelta
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/build/static'),  # React build
+]
+
 
 # CU10 por si acaso
 MEDIA_URL = "/media/"
@@ -119,7 +125,8 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-STATIC_URL = "static/"
+
+STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
