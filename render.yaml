@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: smart-condominium       # Nombre de tu servicio en Render
+    name: smart-condominium-ai-web       # Nombre de tu servicio en Render
     env: python
     region: oregon                 # Puedes cambiar la región si quieres
     branch: main                   # Rama de tu repositorio que quieres desplegar
