@@ -72,8 +72,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "bitacora.middleware.RequestBitacoraMiddleware",
 ]
-INSTALLED_APPS += ['corsheaders']
-MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware',] + MIDDLEWARE
+
 ROOT_URLCONF = "smart_condo.urls"
 
 TEMPLATES = [
@@ -102,7 +101,8 @@ DATABASES = {
     'default': dj_database_url.config(
         default='postgres://postgres:1346@localhost:5432/smart_condo_db',
         conn_max_age=600,   # Keep-alive para PostgreSQL
-        ssl_require=ON_RENDER  # SSL solo en Render
+        ssl_require=ON_RENDER,  # SSL solo en Render
+        engine='django.db.backends.postgresql'
     )
 }
 
