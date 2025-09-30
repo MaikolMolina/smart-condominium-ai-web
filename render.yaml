@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: smart-condominium       # Nombre de tu servicio en Render
+    env: python
+    region: oregon                 # Puedes cambiar la región si quieres
+    branch: main                   # Rama de tu repositorio que quieres desplegar
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn smart_condominium.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: smart-condominium-db  # Nombre de tu servicio de Postgres en Render
+          property: connectionString
+      - key: SECRET_KEY
+        value: "_+vgk)psw%9&+f8r#65*dh3=2kh5ucj#l30c+$vkwm!_@0j7r%"
+      - key: DEBUG
+        value: "False"  # En producción siempre False
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com" # Ajusta según tu dominio
+
+databases:
+  - name: smart-condominium-db
+    engine: postgresql
+    plan: free                     # Plan gratuito de Render
