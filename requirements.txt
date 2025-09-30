@@ -16,3 +16,5 @@ sqlparse==0.5.3
 threadpoolctl==3.6.0
 tzdata==2025.2
 dj-database-url
+gunicorn
+psycopg2-binary
