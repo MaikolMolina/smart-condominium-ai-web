@@ -39,11 +39,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-for-local')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() in ('1','true') and not ON_RENDER
-if ON_RENDER:
-    ALLOWED_HOSTS = [os.environ.get('RENDER_EXTERNAL_HOSTNAME', '')]
-else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
+ALLOWED_HOSTS = ['smart-condominium-ai-web.onrender.com']
 
 # Application definition
 
