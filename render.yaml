@@ -5,7 +5,7 @@ services:
     region: oregon
     branch: main
     buildCommand: './backend/build.sh'
-    startCommand: 'gunicorn smart_condo.wsgi:application'
+    startCommand: 'gunicorn smart_condo.wsgi:application --chdir backend'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
